@@ -1,1 +1,34 @@
 # Digit
+- Evolution of Software Architecture
+	- Single Server Setup (Monolithic Architecture/  Monolith)
+		- DNS Server has the host to IP mapping. IP here is the unique server IP address. 
+		- No frequent interactions are required with the server thus improving performance.
+  - Database Separation
+  - MicroService Architecture
+  - Increased network latency due to inter server communication.
+- Horizontal Scalability
+  - Installing load balancer to distribute load between different servers according to a certain algorithm.
+  - There is horizontal scalability possible in monolithic architecture as well, by just replicating another server of the same structure but the problem is the whole system would get scaled out even if we     want only a certain feature to get scaled out due to its high load consumption. This would lead to wastage of resources since other features might not need that much scaling.
+- DB Replication
+  - Implementing master-slave database system to reduce some pressure on the single database system and to make write and read queries functionality independent of whether the other one is working or not.
+	- Master DB -> Write Operations
+	- Slave DB -> Read Operations
+- Event Driven MicroService Architecture
+	- Drawing the hard boundary for your micro service is important otherwise you will end up building a small monolithic system. Avoid adding unnecessary functionalities, that may be important but can be executed separately.
+	- Domain Driven Design (DDD)
+	- Backward Compatibility refers to the functionality where your service is exposing some APIs to the world, and if you need to make any changes to your service, it should not break the functionality of the system produced by the consumer who is consuming these APIs. 
+	- API versioning - can decide which attributes to make mandatory and which attributes to have a default value associated with them. Make least amount of attributes mandatory, otherwise people tend to put junk data into them, for the API to work, and gradually they start ==hesitating ==using the APIs ==altogether.==
+	- Serialization and Deserialization happens for each service call.
+	- Overly chatty communication patterns or excessive network calls can impact system performance and scalability. If they are synchronous, then they could lead to performance issues, and if asynchronous, can lead to issues with data.
+	- Not everywhere microservice architecture should be applied, especially where the scale is not needed and its not worth the effort of dealing with all the complexities that come along with this type of architecture.
+- Digit
+	- It is basically a facilitator between government and its citizens.
+	- Digit deals with government domain which is ==largely fragmented.==
+	- It is designing its services for national level deployment.
+	- It is offering government a more flexible system which can be adopted with some altercations everwhere.
+	- Ensuring Data Privacy with Data Empowerment.
+ - 
+# Questions
+- Do we have monolithic type architecture within each microservice, is monolithic architecture the fundamental building block of any architecture? 
+- We build microservices using the single responsibility principle that states "gather together those things that change for the same reason, and separate those things that change for different reasons==."== Also, is it safe to say that now we can horizontally scale the monolithic architecture present within each microservice?
+- Can we implement Digit in places like Africa as well just like UPI scaled to many countries?
